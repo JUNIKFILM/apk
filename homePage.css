@@ -1,0 +1,189 @@
+body {
+  position: relative !important;
+  background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-private-custom-movie-advertising-background-backgroundprivate-cinema-backgroundmovie-image_87837.jpg) !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  background-size: cover !important;
+  object-fit: cover !important;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.603);
+  }
+
+  .img  {
+    width: 270px;
+    height: 200px;
+  }
+
+  .center {
+    display: flex;
+  }
+
+  .center {
+position: relative;
+}
+
+.slick-prev,
+.slick-next {
+font-size: 24px;
+color: rgb(255, 255, 255);
+border: none;
+padding: 10px;
+cursor: pointer;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+z-index: 999999;
+}
+
+.slick-prev {
+left: 10px;
+top: 4.5% !important;
+padding: 10px;
+
+&::before {
+font-size: 3rem;
+}
+}
+
+.slick-next {
+right: 46px;
+top: 4.5% !important;
+padding: 10px;
+
+&::before {
+font-size: 3rem;
+}
+}
+
+.xaviec{
+width: 120px !important;
+height: 120px !important; 
+object-fit: cover !important;
+}
+
+.alignleft{
+float: left;
+margin: 1.5rem 0 10px 5px !important;
+font-weight: bold !important;
+font-size: 16px !important;
+}
+
+.alignright{
+float: right;
+margin: 1.5rem 10px 10px 0px !important;
+font-size: 14px !important;
+font-weight: bold !important;
+}
+
+.scrollmenu{
+display:flex !important;
+
+a{
+
+
+.xplus{
+  width: 100px !important;
+  text-wrap: auto !important;
+}
+}
+}
+
+.blogMn {
+z-index: 999999999999999 !important;
+}
+
+}
+
+#junik{
+  
+  display: flex;
+  padding: 1px;
+  width: 10px;
+  height: 20px;
+  
+  
+}
+
+ul #ju{
+  list-style: none;
+  font-weight: 800;
+  font-size: 8vw;
+  letter-spacing:1vw;
+  color: #555;
+  text-shadow: none;
+  animation: anim 5s infinite linear;
+  
+}
+
+@keyframes anim {
+  0%{
+    color: #555;
+    text-shadow: none;
+  }
+  18%{
+    color: #555;
+    text-shadow: none;
+  }
+  20%{
+    color: #ffea00;
+    text-shadow: 0 0 1vw #ffc400,
+    0 0 3vw #f44336;
+  }
+  30%{
+    color: #555;
+    text-shadow: none;
+  }
+  35%{
+    color: #ffea00;
+    text-shadow: 0 0 1vw #ffc400,
+    0 0 3vw #f44336;
+  }
+  70%{
+    color: #555;
+    text-shadow: none;
+  }
+  85%{
+    color: #ffea00;
+    text-shadow: 0 0 1vw #ffc400,
+    0 0 3vw #f44336;
+  }
+  90%{
+    color: #555;
+    text-shadow: none;
+  }
+  100%{
+    color: #555;
+    text-shadow: none;
+  }
+}
+
+h2{
+  text-decoration: underline;
+  color: #555555;
+  text-shadow: none;
+  animation: anim 10s infinite linear;
+}
+
+#header-icon{
+  padding: -150px;
+  top: 0;
+}
+
+#tvEnVivo,
+#homep,
+#sPelis,
+#avisop,
+#avisol{
+  width: 25px;
+}
+
+a{
+  text-decoration: none;
+}
