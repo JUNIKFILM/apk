@@ -171,9 +171,6 @@ h2{
   animation: anim 10s infinite linear;
 }
 
-  a{
-      text-decoration: none;
-    }
 
 #header-icon{
   padding: -150px;
@@ -186,6 +183,11 @@ h2{
 #avisop,
 #avisol{
   width: 25px;
+}
+
+#avi,
+#avil{
+ text-decoration: none;
 }
 
 
