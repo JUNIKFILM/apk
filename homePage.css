@@ -171,6 +171,10 @@ h2{
   animation: anim 10s infinite linear;
 }
 
+  a{
+      text-decoration: none;
+    }
+
 #header-icon{
   padding: -150px;
   top: 0;
@@ -184,6 +188,4 @@ h2{
   width: 25px;
 }
 
-a{
-      text-decoration: none;
-    }
+
