@@ -216,6 +216,6 @@ h2{
 }
 
 .drK, .drK .headCn, .drK .mnBrs{
-  background-color: #000000a1;
+  background-color: #000000a1 !important;
   
 }
