@@ -101,11 +101,6 @@ z-index: 999999999999999 !important;
 
 }
 
-.drK, .drK .headCn, .drK .mnBrs{
-  background-color: #000000a1;
-  
-}
-
 /* Center the header element on all screen sizes */
 .headN#header-title {
   display: flex;
