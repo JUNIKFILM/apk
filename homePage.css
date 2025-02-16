@@ -101,25 +101,55 @@ z-index: 999999999999999 !important;
 
 }
 
-#junik{
-  
+/* Center the header element on all screen sizes */
+.headN#header-title {
   display: flex;
-  padding: 1px;
-  width: 10px;
-  height: 20px;
-  
-  
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
 }
 
-ul #ju{
+.headN#header-title .headInnr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Fix the junik element to be properly centered */
+#junik {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#ju {
   list-style: none;
-  font-weight: 800;
-  font-size: 8vw;
-  letter-spacing:1vw;
-  color: #555;
+  font-weight: 500;
+  font-size: 7vw;
+  letter-spacing: 1vw;
+  color: #555555;
   text-shadow: none;
   animation: anim 5s infinite linear;
-  
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (min-width: 48em) {
+  #ju {
+    font-size: 5vw; /* Slightly smaller on larger screens */
+  }
+}
+
+@media screen and (min-width: 75em) {
+  #ju {
+    font-size: 4vw; /* Even smaller on very large screens */
+    max-width: 1200px; /* Prevent stretching too wide */
+  }
 }
 
 @keyframes anim {
