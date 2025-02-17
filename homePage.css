@@ -208,11 +208,23 @@ h2{
 }
 
 #tvEnVivo,
-#homep,
-#sPelis,
-#avisop,
-#avisol{
-  width: 25px;
-}
+    #homep,
+    #sPelis,
+    #avisop,
+    #avisol,
+    #compartir,
+    #telegram{
+      width: 25px;
+      height: 25px;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    #comp{
+      cursor: pointer;
+    }
+
 
 
