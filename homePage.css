@@ -227,12 +227,85 @@ h2{
 
     #nav-widget-1{
       background: #000000e7;
-      
+      height: auto;
     }
 
     .d-inline-flex{
-      margin: 10px 0;
+      margin: 7px 0;
+      width: 300px;
+      
     }
+
+    .mMenu > li {
+      float: left;
+    }
+
+    .mMenu li ul {
+      display: none;
+      position: absolute;
+      max-width: 140px;
+    }
+
+    .close-button{
+      left: 250%;
+      
+    }
+
+    .mMenu > li {
+    float: left;
+    position: relative; 
+    cursor: pointer; 
+    cursor: pointer;
+    display: relative;
+    
+}
+
+.mMenu li ul {
+    display: none;
+    position: absolute;
+    max-width: 140px;
+}
+
+/* Mostrar el submenú cuando se hace clic */
+.mMenu li.active ul {
+    display: block;
+}
+
+.menu-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.content-panel {
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0);
+    transition: max-height 0.3s ease-in-out;
+    padding: 0 20px;
+    box-sizing: border-box;
+    
+}
+
+.content-panel.visible {
+    max-height: 300px;
+    padding: 65px;
+    
+}
+
+.close-button {
+    display: none; /* Ocultar el botón por defecto */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.content-panel.visible .close-button {
+    display: block; /* Mostrar el botón solo cuando el panel está visible */
+}
 
 
 
