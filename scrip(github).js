@@ -181,5 +181,12 @@ document.querySelectorAll('.mMenu > li').forEach(item => {
 function ocultar_boton(){
   boton.style.display = "none";
  
-}          
+}
+
+document.getElementById("sharecomp").addEventListener("click", m_boton);
+
+function m_boton(){
+  boton.style.display = "block";
+ 
+}    
 
