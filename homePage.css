@@ -305,7 +305,20 @@ h2{
 .content-panel.visible .close-button {
     display: block; /* Mostrar el botón solo cuando el panel está visible */
 }
-
+#movieSearch{
+  background-color: #3636368c;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  padding-right: 50px;
+  border-radius: 50px;
+  border: 0;
+  outline: none;
+  font-size: 0.8rem;
+  color: #c2bfbf;
+  display: none;
+  
+}
 
 
 
