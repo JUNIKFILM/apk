@@ -190,3 +190,54 @@ function m_boton(){
  
 }    
 
+// Get the container and movie list elements
+const container = document.querySelector('.Container');
+const movieList = document.querySelector('.MovieList');
+const movieItems = document.querySelectorAll('.TPostMv');
+
+// Create and add search input
+function createSearchBar() {
+    const searchDiv = document.createElement('div');
+    searchDiv.className = 'search-container';
+    
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.id = 'movieSearch';
+    searchInput.placeholder = 'Buscar películas...';
+    searchInput.className = 'search-input';
+    
+    
+    
+    searchDiv.appendChild(searchInput);
+    container.insertBefore(searchDiv, movieList);
+    
+    return searchInput;
+}
+
+// Filter function
+function filterMovies(searchTerm) {
+    movieItems.forEach(movie => {
+        const text = movie.textContent.toLowerCase();
+        const isVisible = text.includes(searchTerm.toLowerCase());
+        movie.style.display = isVisible ? '' : 'none';
+    });
+}
+
+// Initialize search functionality
+function initializeSearch() {
+    const searchInput = createSearchBar();
+    
+    searchInput.addEventListener('input', (e) => {
+        filterMovies(e.target.value);
+    });
+}
+
+// Call the initialization
+initializeSearch();
+
+document.getElementById("lupa").addEventListener("click", m_buscador);
+
+function m_buscador(){
+    movieSearch.style.display = "block";
+ 
+}    
