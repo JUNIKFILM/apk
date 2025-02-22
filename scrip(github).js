@@ -246,3 +246,4 @@ function m_buscador(){
 
 function o_buscador(){
     movieSearch.style.display = "none";
+  }
