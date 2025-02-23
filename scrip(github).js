@@ -183,10 +183,5 @@ function ocultar_boton(){
  
 }
 
-document.getElementById("sharecomp").addEventListener("click", m_boton);
-
-function m_boton(){
-  boton.style.display = "block";
- 
-}    
+  
 
