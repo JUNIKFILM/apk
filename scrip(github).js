@@ -174,7 +174,7 @@ document.querySelectorAll('.mMenu > li').forEach(item => {
     });
 });
 
-  document.getElementById("boton").addEventListener("click", ocultar_boton);
+document.getElementById("boton").addEventListener("click", ocultar_boton);
 
 //ocultas lista de articulos
 
@@ -182,6 +182,3 @@ function ocultar_boton(){
   boton.style.display = "none";
  
 }
-
-  
-
