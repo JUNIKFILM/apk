@@ -221,22 +221,51 @@ h2{
     }
 
     #comp{
-      cursor: pointer;
+      border: 1px solid #ffc400;
+      position: relative;
+      padding: 1px; 
+      font-size: 1em;
+      letter-spacing: 2px;
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+      color: #ffc400;
+      background-color: #000000;
+
+    }
+
+    #r {
+      background-color: #000000;
+      border-radius: 100%;
+      border: 1px solid #ffc400;
       
     }
 
+    
+
     #nav-widget-1{
-      background: #000000e7;
+      background-color: #00000000;
       height: auto;
     }
 
     .d-inline-flex{
-      margin: 6px 0;
-      width: 170px;
+      margin: -3px 0;
+      width: 250px;
+
+    }
+
+    #boton {
+      width: 35px;
+      height: 35px;
+      background-color: #000000;
+      border-radius: 100%;
+      border: 1px solid #ffc400
+
     }
 
     .mMenu > li {
       float: left;
+
     }
 
     .mMenu li ul {
@@ -247,8 +276,18 @@ h2{
 
     .close-button{
       left: 190%;
+      margin-top: -50px;
       
     }
+
+    .mMenu > li {
+    float: left;
+    position: relative; 
+    cursor: pointer; 
+    cursor: pointer;
+    display: relative;
+    
+}
 
     .mMenu > li {
     float: left;
