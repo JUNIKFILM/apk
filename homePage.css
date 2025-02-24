@@ -237,7 +237,7 @@ h2{
     }
 
     #png{
-      left: 110px;
+      left: 50px;
     }
 
     #r {
@@ -312,7 +312,7 @@ h2{
     max-height: 0;
     overflow: hidden;
     background: rgba(255, 255, 255, 0);
-    transition: 0.7s;
+    transition: 1s;
     padding: 0 20px;
     box-sizing: border-box;
     height: 200px;
