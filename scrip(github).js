@@ -1,32 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const mainCont = document.querySelector("#mainCont");
-
-  if (mainCont) {
-    mainCont.classList.add("drK");
-    localStorage.setItem("mode", "darkmode");
-  }
-});
-
-const DarkMode = {
-  updateIcon(isDark) {
-    const darkModeContainer = document.querySelector('.isDrk');
-    if (darkModeContainer) {
-      darkModeContainer.classList.toggle('active', isDark);
-    }
-  },
-
-  init() {
-    const isDarkMode = localStorage.getItem('mode') === 'darkmode';
-    const mainContainer = document.querySelector('#mainCont');
-
-    if (isDarkMode) {
-      mainContainer?.classList.add('drK');
-      this.updateIcon(true);
-    }
-  }
-};
-
-document.addEventListener('DOMContentLoaded', () => {
   DarkMode.init();
 
   //window.addEventListener('scroll', () => {
