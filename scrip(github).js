@@ -133,10 +133,10 @@ document.querySelectorAll('.mMenu > li').forEach(item => {
             panel.innerHTML = `
                 <button class="close-button" id="close" >×</button>
             `;
-          boton.style.display = "none"
+          boton.style.display = "none";
 
             // Agregar evento al botón de cerrar
-            const closeButton = panel.querySelector('.close-button');
+            const closeButton = panel.querySelector('.close-button');('.mMenu');
             closeButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.classList.remove('active');
