@@ -135,22 +135,14 @@ document.querySelectorAll('.mMenu > li').forEach(item => {
             `;
 
             // Agregar evento al botón de cerrar
-            const closeButton = panel.querySelector('.close-button');
+            const closeButton = panel.querySelector('.close-button');('.mMenu');
             closeButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.classList.remove('active');
                 panel.classList.remove('visible');
-                boton.style.display = "block"
+                boton.style.display = "block";
             });
+
         }
     });
 });
-
-document.getElementById("boton").addEventListener("click", ocultar_boton);
-
-//ocultas lista de articulos
-
-function ocultar_boton(){
-  boton.style.display = "none";
- 
-}
