@@ -133,6 +133,7 @@ document.querySelectorAll('.mMenu > li').forEach(item => {
             panel.innerHTML = `
                 <button class="close-button" id="close" >×</button>
             `;
+          boton.style.display = "none"
 
             // Agregar evento al botón de cerrar
             const closeButton = panel.querySelector('.close-button');('.mMenu');
