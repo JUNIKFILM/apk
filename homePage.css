@@ -223,124 +223,103 @@ h2{
       text-decoration: none;
     }
 
-    #comp{
+#nav-widget-1{
+      background-color: #00000000;
+      height: auto;
+    }
+
+    
+    #png{
+      margin:auto;
+    }
+
+    #btn-mas {
+      display: none;
+    }
+    
+    .containerm {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    #r, #boton {
+      display: inline-block;
+      text-decoration: none;
+      background: #000000;
+      line-height: 55px;
+      text-align: center;
+      border-radius: 50%;
+      box-shadow: 0px 1px 10px #ffc400;
+      transition: all 500ms ease;
+    }
+    
+    #boton {
+      width: 35px;
+      height: 35px;
+    }
+    
+    #boton:hover {
+      background: #fff;
+      color: #ffc400;
+    }
+    
+    #r:hover {
+      background: #fff;
+      color: #ffea00;
+    }
+    
+    #comp:hover {
+      background: #fff;
+      color: #ffea00;
+    }
+    
+    .redes {
+      position: absolute;
+      bottom: 45px; /* Position it above the main button */
+      right: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px); /* This will make it appear from below */
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column-reverse; /* Stack items bottom to top */
+      align-items: flex-end; /* Align items to the right */
+    }
+    
+    .redes a {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: row-reverse; /* Keep text to the left of icons */
+      align-items: center;
+    }
+    
+    #btn-mas:checked ~ .redes {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    #btn-mas:checked ~ .btn-mas #boton {
+      transform: rotate(45deg);
+    }
+    
+    #comp {
       border: 1px solid #ffc400;
       position: relative;
-      padding: 1px; 
+      padding: 2.5px;
       font-size: 0.9em;
       letter-spacing: 2px;
       width: 100%;
       text-align: center;
       text-transform: uppercase;
       color: #ffc400;
-      background-color: #000000;
-    }
-
-    #png{
-      margin:auto;
-    }
-
-    #r {
-      background-color: #000000;
-      border-radius: 100%;
-      border: 1px solid #ffc400;
-      top: -7px;
-    }
-
-    #nav-widget-1{
-      background-color: #00000000;
-      height: auto;
-    }
-
-    .d-inline-flex{
-      margin: 9px 0;
-      width: 250px;
-    }
-
-    #boton {
-      width: 35px;
-      height: 35px;
-      background-color: #000000;
-      border-radius: 100%;
-      border: 1px solid #ffc400;
-
-    }
-
-    .mMenu > li {
-      float: left;
-
-    }
-
-    .mMenu li ul {
-      display: none;
-      position: absolute;
-      max-width: 300px;
-    }
-
-    .close-button{
-      left: 190%;
-      margin-top: -19px;
+      background-color: #0000003f;
+      box-shadow: 0px 1px 10px #ffc400;
+      transition: all 500ms ease;
+      margin-right: 10px; 
+      width: 230px;
       
     }
 
-    .mMenu > li {
-    float: left;
-    position: relative; 
-    cursor: pointer; 
-    cursor: pointer;
-    display: relative;
-    
-}
-
-.mMenu li ul {
-    display: none;
-    position: absolute;
-    max-width: 190px;
-}
-
-/* Mostrar el submenú cuando se hace clic */
-.mMenu li.active ul {
-    display: block;
-}
-
-.menu-container {
-    position: relative;
-    overflow: hidden;
-}
-
-.content-panel {
-    max-height: 0;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0);
-    transition: 1s;
-    padding: 0 20px;
-    box-sizing: border-box;
-    height: 200px;
-    
-}
-
-.content-panel.visible {
-    max-height: 300px;
-    padding: 65px;
-    
-}
-
-.close-button {
-    display: none; /* Ocultar el botón por defecto */
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    border: none;
-    background: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-
-.content-panel.visible .close-button {
-    display: block; 
-}
-
-
-
-
+  
