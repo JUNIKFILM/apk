@@ -65,41 +65,90 @@ const Defer = {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  Defer.dom('.lazy', 'loaded');
-});
-
-$(document).ready(function() {
-  $('.center').slick({
-    prevArrow: '.slick-prev',
-    nextArrow: '.slick-next',
-    centerMode: true,
-    centerPadding: '60px',
-    slidesToShow: 3,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    responsive:
-      [
-
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 1
-          }
-        }
-      ]
-  });
-});
-
+ document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const indicatorsContainer = document.querySelector('.indicators');
+            
+            let currentIndex = 0;
+            const slideCount = slides.length;
+            let slideWidth = slider.clientWidth;
+            let interval;
+            
+            // Crear indicadores
+            for (let i = 0; i < slideCount; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (i === 0) {
+                    indicator.classList.add('active');
+                }
+                indicator.dataset.index = i;
+                indicatorsContainer.appendChild(indicator);
+            }
+            
+            const indicators = document.querySelectorAll('.indicator');
+            
+            // Función para mostrar una diapositiva específica
+            function goToSlide(index) {
+                if (index < 0) {
+                    index = slideCount - 1;
+                } else if (index >= slideCount) {
+                    index = 0;
+                }
+                
+                currentIndex = index;
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Actualizar indicadores
+                indicators.forEach((ind, i) => {
+                    if (i === currentIndex) {
+                        ind.classList.add('active');
+                    } else {
+                        ind.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Event listeners para los botones
+            prevBtn.addEventListener('click', () => {
+                goToSlide(currentIndex - 1);
+                resetInterval();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                goToSlide(currentIndex + 1);
+                resetInterval();
+            });
+            
+            // Event listeners para los indicadores
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', () => {
+                    const index = parseInt(indicator.dataset.index);
+                    goToSlide(index);
+                    resetInterval();
+                });
+            });
+            
+            // Cambio automático de diapositivas
+            function startInterval() {
+                interval = setInterval(() => {
+                    goToSlide(currentIndex + 1);
+                }, 3000);
+            }
+            
+            function resetInterval() {
+                clearInterval(interval);
+                startInterval();
+            }
+            
+            // Ajustar el tamaño del slider cuando cambia el tamaño de la ventana
+            window.addEventListener('resize', () => {
+                slideWidth = slider.clientWidth;
+                goToSlide(currentIndex);
+            });
+            
+            // Iniciar el slider
+            startInterval();
+        });
