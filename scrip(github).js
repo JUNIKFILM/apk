@@ -152,3 +152,14 @@ const Defer = {
             // Iniciar el slider
             startInterval();
         });
+
+         function selectItem(element) {
+            // Remove selected class from all items
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked item
+            element.classList.add('selected');
+        }                      
