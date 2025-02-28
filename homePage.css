@@ -368,5 +368,55 @@ h2{
   .indicator.active {
       background-color: #ffc400;
   }
+ body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+            
+        }
+        
+        .menu-container {
+            width: 100%;
+            background-color: #00000000;
+            padding: 10px 0;
+            
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .menu-item.selected {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #ffc400;
+            padding-left: 11px; /* compensate for the border */
+        }
+        
+        .menu-icon {
+            
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            align-items: center;
+            justify-content: center;
+            float: left;
+        }
 
+        #tex{
+          font-weight: 600;
+        }
+        
+      
+
+    
   
