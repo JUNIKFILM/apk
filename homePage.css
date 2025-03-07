@@ -496,9 +496,6 @@ h2{
           font-weight: 600;
           font-size: 14px;
           background-color: #00000079;
-           box-sizing: border-box;
-          overflow: hidden;
-
         }
         
         @media (max-width: 768px) {
