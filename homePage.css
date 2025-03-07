@@ -26,14 +26,14 @@ height: 120px !important;
 object-fit: cover !important;
 }
 
-.alignleft{
+.title{
 float: left;
 margin: 1.5rem 0 10px 5px !important;
 font-weight: bold !important;
 font-size: 16px !important;
 }
 
-.alignright{
+.see-all{
 float: right;
 margin: 1.5rem 10px 10px 0px !important;
 font-size: 14px !important;
@@ -423,12 +423,11 @@ h2{
         .title {
           font-size: 28px;
           font-weight: bold;
-          color: #FDD835;
         }
         
-        .see-all {
-          color: #FDD835;
-          font-weight: 600;
+        .see-all{
+          
+          font-weight: 700;
           text-decoration: none;
         }
         
@@ -437,6 +436,7 @@ h2{
           white-space: nowrap;
           padding-bottom: 16px;
           -webkit-overflow-scrolling: touch;
+          margin-top: -25px;
           
         }
         
@@ -451,14 +451,14 @@ h2{
         
         .movie-list {
           display: inline-flex;
-          gap: 3px;
+          gap: 1px;
         }
         
         .movie-card {
           display: inline-block;
           position: relative;
-          max-width: 110px;
-          height: 150px;
+          max-width: 105px;
+          height: 140px;
           border-radius: 8px;
           overflow: hidden;
           transition: transform 0.3s ease;
@@ -503,9 +503,7 @@ h2{
             width: 160px;
           }
           
-          .title {
-            font-size: 24px;
-          }
+          
         }
       
 
