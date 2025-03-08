@@ -237,7 +237,7 @@ function addStyles() {
     }
     
     .offline-notification {
-      background-color: #f44336;
+      background-color: #333333cb;
       color: white;
     }
     
