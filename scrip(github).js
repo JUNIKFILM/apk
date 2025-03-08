@@ -162,4 +162,109 @@ const Defer = {
             
             // Add selected class to clicked item
             element.classList.add('selected');
-        }                      
+        }          
+
+        // Create the notification element
+  function createOfflineNotification() {
+  const notification = document.createElement('div');
+  notification.id = 'offline-notification';
+  notification.className = 'offline-notification hidden';
+  
+  notification.innerHTML = `
+    <div class="offline-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+      <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+      <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+      <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+      <line x1="1" y1="1" x2="23" y2="23"></line>
+    </svg>
+    </div>
+    <div class="offline-content">
+      <h3>Sin conexión a Internet</h3>
+      <p>No tienes conexión a Internet. Algunas funciones de la aplicación pueden no estar disponibles.</p>
+    </div>
+  `;
+  
+  document.body.appendChild(notification);
+  return notification;
+}
+
+// Add CSS styles
+function addStyles() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .offline-notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 400px;
+      width: calc(100% - 40px);
+      background-color: #f44336;
+      color: white;
+      padding: 16px;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: flex-start;
+      z-index: 9999;
+      animation: slide-in 0.3s ease-out;
+    }
+    
+    .offline-icon {
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    .offline-content h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+    
+    .offline-content p {
+      margin: 0;
+      font-size: 14px;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    @keyframes slide-in {
+      from {
+        transform: translate(-50%, 100px);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// Initialize the offline notification functionality
+function initOfflineNotification() {
+  addStyles();
+  const notification = createOfflineNotification();
+  
+  // Check initial connection status
+  if (!navigator.onLine) {
+    notification.classList.remove('hidden');
+  }
+  
+  // Add event listeners for online/offline events
+  window.addEventListener('online', () => {
+    notification.classList.add('hidden');
+  });
+  
+  window.addEventListener('offline', () => {
+    notification.classList.remove('hidden');
+  });
+}
+
+// Run the initialization when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initOfflineNotification);
