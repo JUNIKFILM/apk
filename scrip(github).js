@@ -182,8 +182,7 @@ function createOfflineNotification() {
       </svg>
     </div>
     <div class="notification-content">
-      <h3>Sin conexión a Internet</h3>
-      <p>No tienes conexión a Internet. Algunas funciones de la aplicación pueden no estar disponibles.</p>
+      <h2>Sin conexión a Internet</h2>
     </div>
   `;
   
@@ -207,8 +206,7 @@ function createOnlineNotification() {
       </svg>
     </div>
     <div class="notification-content">
-      <h3>Conexión restablecida</h3>
-      <p>Tu conexión a Internet ha sido restablecida. Todas las funciones están disponibles nuevamente.</p>
+      <h2>Conexión restablecida</h2>
     </div>
   `;
   
