@@ -249,9 +249,10 @@ function addStyles() {
       flex-shrink: 0;
     }
     
-    .notification-content h3 {
+    .notification-content h2 {
       margin: 0 0 8px 0;
       font-size: 18px;
+       color: rgb(255, 255, 255);
     }
     
     .notification-content p {
@@ -335,3 +336,7 @@ function initConnectionNotifications() {
 
 // Run the initialization when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initConnectionNotifications);
+
+
+
+
