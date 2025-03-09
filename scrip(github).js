@@ -182,7 +182,7 @@ function createOfflineNotification() {
       </svg>
     </div>
     <div class="notification-content">
-      <h2>Sin conexión a Internet</h2>
+      <h3>Sin conexión a Internet</h3>
     </div>
   `;
   
@@ -206,7 +206,7 @@ function createOnlineNotification() {
       </svg>
     </div>
     <div class="notification-content">
-      <h2>Conexión restablecida</h2>
+      <h3>Conexión restablecida</h3>
     </div>
   `;
   
@@ -249,7 +249,7 @@ function addStyles() {
       flex-shrink: 0;
     }
     
-    .notification-content h2 {
+    .notification-content h3 {
       margin: 0 0 8px 0;
       font-size: 18px;
        color: rgb(255, 255, 255);
