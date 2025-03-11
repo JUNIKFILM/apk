@@ -1,170 +1,182 @@
-document.addEventListener('DOMContentLoaded', () => {
-  DarkMode.init();
+// Función para el menú móvil
+function toggleMobileMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenu.classList.toggle('active');
+}
 
-  //window.addEventListener('scroll', () => {
-  //const scrollDistance = window.pageYOffset || document.documentElement.scrollTop;
-  //document.getElementById('header')?.classList.toggle('stick', scrollDistance > SHRINK_DISTANCE);
-  //});
+// Funcionalidad del slider principal
+const sliderWrapper = document.getElementById('sliderWrapper');
+const slides = document.querySelectorAll('.slide');
+const indicators = document.querySelectorAll('.slider-indicator');
+const prevBtn = document.querySelector('.slider-prev');
+const nextBtn = document.querySelector('.slider-next');
+let currentSlide = 0;
+let slideInterval;
 
-  const lazyElements = document.querySelectorAll('.lazyYt, .zmImg');
-  lazyElements.forEach(element => {
-    if (element.classList.contains('lazyYt')) {
-      YouTubeLoader.initElement(element);
-    } else if (element.classList.contains('zmImg')) {
-      ImageLightbox.bindEvent(element);
-    }
+// Iniciar el slider automático
+function startSlideInterval() {
+  slideInterval = setInterval(() => {
+      moveToSlide((currentSlide + 1) % slides.length);
+  }, 5000);
+}
+
+// Mover a un slide específico
+function moveToSlide(index) {
+  currentSlide = index;
+  sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+  
+  // Actualizar indicadores
+  indicators.forEach((indicator, i) => {
+      indicator.classList.toggle('active', i === currentSlide);
+  });
+}
+
+// Event listeners para los controles del slider
+prevBtn.addEventListener('click', () => {
+  clearInterval(slideInterval);
+  moveToSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
+  startSlideInterval();
+});
+
+nextBtn.addEventListener('click', () => {
+  clearInterval(slideInterval);
+  moveToSlide((currentSlide + 1) % slides.length);
+  startSlideInterval();
+});
+
+// Event listeners para los indicadores
+indicators.forEach((indicator, index) => {
+  indicator.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      moveToSlide(index);
+      startSlideInterval();
   });
 });
 
-const YouTubeLoader = {
-  initElement(container) {
-    const videoId = container.dataset.embed;
-    if (!videoId) return;
+// Iniciar el slider
+startSlideInterval();
 
-    const thumbnail = new Image();
-    thumbnail.className = 'lazy';
-    thumbnail.src = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
-    thumbnail.alt = 'YouTube video thumbnail';
+// Funcionalidad para las filas de películas
+const movieRows = document.querySelectorAll('.movie-row-container');
+const prevBtns = document.querySelectorAll('.row-prev');
+const nextBtns = document.querySelectorAll('.row-next');
 
-    container.appendChild(thumbnail);
-
-    container.addEventListener('click', () => {
-      const iframe = document.createElement('iframe');
-      iframe.frameBorder = '0';
-      iframe.allowFullscreen = true;
-      iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&showinfo=0&autoplay=1`;
-      container.innerHTML = '';
-      container.appendChild(iframe);
-    });
+// Configurar cada fila de películas
+movieRows.forEach((row, index) => {
+  const prevBtn = prevBtns[index];
+  const nextBtn = nextBtns[index];
+  
+  // Función para manejar el desplazamiento
+  function handleRowScroll() {
+      const scrollPosition = row.scrollLeft;
+      const maxScroll = row.scrollWidth - row.clientWidth;
+      
+      if (scrollPosition > 10) {
+          prevBtn.style.opacity = '1';
+      } else {
+          prevBtn.style.opacity = '0';
+      }
+      
+      if (maxScroll > 0 && scrollPosition < maxScroll - 10) {
+          nextBtn.style.opacity = '1';
+      } else {
+          nextBtn.style.opacity = '0';
+      }
   }
-};
+  
+  // Inicializar estado de los botones
+  handleRowScroll();
+  
+  // Event listener para controlar visibilidad de botones durante scroll
+  row.addEventListener('scroll', handleRowScroll);
+  
+  // Event listeners para los botones de navegación
+  prevBtn.addEventListener('click', () => {
+      const scrollAmount = 240; // Aproximadamente 2 tarjetas
+      row.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth'
+      });
+  });
+  
+  nextBtn.addEventListener('click', () => {
+      const scrollAmount = 240; // Aproximadamente 2 tarjetas
+      row.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth'
+      });
+  });
+});
 
-const ImageLightbox = {
-  bindEvent(container) {
-    container.addEventListener('click', () => {
-      container.classList.toggle('s');
-    });
-  }
-};
-
-const Defer = {
-  dom(selector, loadedClass = 'loaded', callback) {
-    const elements = document.querySelectorAll(selector);
-    elements.forEach(element => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            observer.unobserve(entry.target);
-            if (callback) callback(entry.target);
-            entry.target.classList.add(loadedClass);
+ // JavaScript para controlar los menús desplegables
+    document.addEventListener('DOMContentLoaded', function() {
+      // Configurar cada menú desplegable
+      for (let i = 1; i <= 5; i++) {
+        const menuToggle = document.getElementById('menu-toggle-' + i);
+        const dropdownMenu = document.getElementById('dropdown-menu-' + i);
+        const chevronIcon = document.getElementById('chevron-icon-' + i);
+        
+        // Almacenar el estado del menú
+        let isOpen = false;
+        
+        menuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          isOpen = !isOpen;
+          
+          if (isOpen) {
+            dropdownMenu.classList.add('show');
+            // Cambiar el icono a chevron-up
+            chevronIcon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
+          } else {
+            dropdownMenu.classList.remove('show');
+            // Cambiar el icono a chevron-down
+            chevronIcon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
           }
         });
-      });
-      observer.observe(element);
+      }
     });
-  }
-};
 
- document.addEventListener('DOMContentLoaded', function() {
-            const slider = document.querySelector('.slider');
-            const slides = document.querySelectorAll('.slide');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            const indicatorsContainer = document.querySelector('.indicators');
-            
-            let currentIndex = 0;
-            const slideCount = slides.length;
-            let slideWidth = slider.clientWidth;
-            let interval;
-            
-            // Crear indicadores
-            for (let i = 0; i < slideCount; i++) {
-                const indicator = document.createElement('div');
-                indicator.classList.add('indicator');
-                if (i === 0) {
-                    indicator.classList.add('active');
-                }
-                indicator.dataset.index = i;
-                indicatorsContainer.appendChild(indicator);
-            }
-            
-            const indicators = document.querySelectorAll('.indicator');
-            
-            // Función para mostrar una diapositiva específica
-            function goToSlide(index) {
-                if (index < 0) {
-                    index = slideCount - 1;
-                } else if (index >= slideCount) {
-                    index = 0;
-                }
-                
-                currentIndex = index;
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Actualizar indicadores
-                indicators.forEach((ind, i) => {
-                    if (i === currentIndex) {
-                        ind.classList.add('active');
-                    } else {
-                        ind.classList.remove('active');
-                    }
-                });
-            }
-            
-            // Event listeners para los botones
-            prevBtn.addEventListener('click', () => {
-                goToSlide(currentIndex - 1);
-                resetInterval();
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                goToSlide(currentIndex + 1);
-                resetInterval();
-            });
-            
-            // Event listeners para los indicadores
-            indicators.forEach(indicator => {
-                indicator.addEventListener('click', () => {
-                    const index = parseInt(indicator.dataset.index);
-                    goToSlide(index);
-                    resetInterval();
-                });
-            });
-            
-            // Cambio automático de diapositivas
-            function startInterval() {
-                interval = setInterval(() => {
-                    goToSlide(currentIndex + 1);
-                }, 3000);
-            }
-            
-            function resetInterval() {
-                clearInterval(interval);
-                startInterval();
-            }
-            
-            // Ajustar el tamaño del slider cuando cambia el tamaño de la ventana
-            window.addEventListener('resize', () => {
-                slideWidth = slider.clientWidth;
-                goToSlide(currentIndex);
-            });
-            
-            // Iniciar el slider
-            startInterval();
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButton = document.getElementById('toggleButton');
+      const menuItems = document.getElementById('menuItems');
+      
+      toggleButton.addEventListener('click', function() {
+        toggleButton.classList.toggle('active');
+        menuItems.classList.toggle('hidden');
+      });
+    });
 
-         function selectItem(element) {
-            // Remove selected class from all items
-            const items = document.querySelectorAll('.menu-item');
-            items.forEach(item => {
-                item.classList.remove('selected');
-            });
-            
-            // Add selected class to clicked item
-            element.classList.add('selected');
-        }          
+     // Seleccionar todos los dropdowns
+     const dropdowns = document.querySelectorAll('.dropdown');
+    
+     // Agregar evento de clic a cada botón de dropdown
+     dropdowns.forEach(dropdown => {
+       const button = dropdown.querySelector('.btn');
+       
+       button.addEventListener('click', () => {
+         // Cerrar todos los otros dropdowns
+         dropdowns.forEach(otherDropdown => {
+           if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
+             otherDropdown.classList.remove('active');
+           }
+         });
+         
+         // Alternar la clase active en el dropdown actual
+         dropdown.classList.toggle('active');
+       });
+     });
+     
+     // Cerrar dropdowns cuando se hace clic fuera de ellos
+     document.addEventListener('click', (event) => {
+       if (!event.target.closest('.dropdown')) {
+         dropdowns.forEach(dropdown => {
+           dropdown.classList.remove('active');
+         });
+       }
+     });
 
-       // Create the offline notification element
+
+      // Create the offline notification element
 function createOfflineNotification() {
   const notification = document.createElement('div');
   notification.id = 'offline-notification';
@@ -336,7 +348,4 @@ function initConnectionNotifications() {
 
 // Run the initialization when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initConnectionNotifications);
-
-
-
 
