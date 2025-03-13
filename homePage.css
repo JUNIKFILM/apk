@@ -24,6 +24,10 @@ a {
   padding: 0 1rem;
 }
 
+.b {
+  font-size: 15px !important;
+}
+
 /* Header y Navegación */
 header {
   position: sticky;
@@ -213,12 +217,55 @@ header {
       height: 400px;
   }
 
+  .slider-nav {
+    width: 90px !important;
+    height: 90px !important;
+  }
+
+  .toggle-button {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .menu-items {
+    top: -350px;
+  }
+
+  h5 {
+  font-size: 16px !important;
+    }
+
+    .category-link {
+      font-size: 26px !important;
+    }
+
+    .icon {
+      width: 30px !important;
+    height: 30px !important;
+    }
+
+    .menu-button  {
+    width: 70px !important;
+    height: 70px !important;
+   }
+    .menu-label {
+      width: 200px !important;
+      height: 50px !important;
+    }
+
+    .menu-label::after{
+      width: 197px !important;
+      height: 47px !important;
+
+    }
+
   a.movie-card{
     width: 250px !important;
   }
   .movie-title{
     font-size: 20px !important;
   }
+  
 
   .header-nav {
       display: flex;
