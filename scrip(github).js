@@ -108,6 +108,15 @@ movieRows.forEach((row, index) => {
   });
 });
 
+// Funcionalidad para el botón flotante
+const toggleFloatingMenu = document.getElementById('toggle-floating-menu');
+const floatingMenuItems = document.getElementById('floating-menu-items');
+
+toggleFloatingMenu.addEventListener('click', () => {
+  floatingMenuItems.classList.toggle('hidden');
+  toggleFloatingMenu.classList.toggle('active');
+});
+
 
      
 
