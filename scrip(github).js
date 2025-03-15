@@ -108,72 +108,8 @@ movieRows.forEach((row, index) => {
   });
 });
 
- // JavaScript para controlar los menús desplegables
-    document.addEventListener('DOMContentLoaded', function() {
-      // Configurar cada menú desplegable
-      for (let i = 1; i <= 5; i++) {
-        const menuToggle = document.getElementById('menu-toggle-' + i);
-        const dropdownMenu = document.getElementById('dropdown-menu-' + i);
-        const chevronIcon = document.getElementById('chevron-icon-' + i);
-        
-        // Almacenar el estado del menú
-        let isOpen = false;
-        
-        menuToggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          isOpen = !isOpen;
-          
-          if (isOpen) {
-            dropdownMenu.classList.add('show');
-            // Cambiar el icono a chevron-up
-            chevronIcon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
-          } else {
-            dropdownMenu.classList.remove('show');
-            // Cambiar el icono a chevron-down
-            chevronIcon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
-          }
-        });
-      }
-    });
 
-    document.addEventListener('DOMContentLoaded', function() {
-      const toggleButton = document.getElementById('toggleButton');
-      const menuItems = document.getElementById('menuItems');
-      
-      toggleButton.addEventListener('click', function() {
-        toggleButton.classList.toggle('active');
-        menuItems.classList.toggle('hidden');
-      });
-    });
-
-     // Seleccionar todos los dropdowns
-     const dropdowns = document.querySelectorAll('.dropdown');
-    
-     // Agregar evento de clic a cada botón de dropdown
-     dropdowns.forEach(dropdown => {
-       const button = dropdown.querySelector('.btn');
-       
-       button.addEventListener('click', () => {
-         // Cerrar todos los otros dropdowns
-         dropdowns.forEach(otherDropdown => {
-           if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
-             otherDropdown.classList.remove('active');
-           }
-         });
-         
-         // Alternar la clase active en el dropdown actual
-         dropdown.classList.toggle('active');
-       });
-     });
      
-     // Cerrar dropdowns cuando se hace clic fuera de ellos
-     document.addEventListener('click', (event) => {
-       if (!event.target.closest('.dropdown')) {
-         dropdowns.forEach(dropdown => {
-           dropdown.classList.remove('active');
-         });
-       }
-     });
 
 
       // Create the offline notification element
@@ -252,7 +188,7 @@ function addStyles() {
     }
     
     .online-notification {
-      background-color: #4CAF50;
+      background-color: #333333cb;
       color: white;
     }
     
@@ -348,4 +284,33 @@ function initConnectionNotifications() {
 
 // Run the initialization when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initConnectionNotifications);
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Get all navigation buttons
+  const navButtons = document.querySelectorAll(".header-nav .btn")
+
+  // Add click event listener to each button
+  navButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      // Prevent default action for demo purposes (remove this in production if you want the links to work)
+      e.preventDefault()
+
+      // Remove active class from all buttons
+      navButtons.forEach((btn) => {
+        btn.classList.remove("active")
+      })
+
+      // Add active class to clicked button
+      this.classList.add("active")
+
+      // Optional: Store the active item in localStorage to persist across page loads
+      localStorage.setItem("activeNavItem", this.getAttribute("data-name"))
+    })
+  })
+
+  
+})
+
+
 
