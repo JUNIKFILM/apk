@@ -322,8 +322,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 //funcion para cntrol de tv
-prueba esto,
-
 @Override
     public boolean onKeyDown(int keyCode, KeyEvent events) {
         switch (keyCode) {
