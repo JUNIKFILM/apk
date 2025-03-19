@@ -321,5 +321,31 @@ document.addEventListener("DOMContentLoaded", () => {
   
 })
 
+//funcion para cntrol de tv
+prueba esto,
 
+@Override
+    public boolean onKeyDown(int keyCode, KeyEvent events) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_CENTER:
+
+                break;
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+
+                break;
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+
+                break;
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+
+                break;
+            case KeyEvent.KEYCODE_DPAD_UP:
+
+                break;
+            case KeyEvent.FLAG_KEEP_TOUCH_MODE:
+
+                break;
+        }
+        return super.onKeyDown(keyCode, events);
+    }
 
